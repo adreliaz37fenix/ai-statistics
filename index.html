@@ -173,14 +173,27 @@
                 left: 0;
                 right: 0;
                 flex-direction: column;
-                background-color: white;
-                padding: 20px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                text-align: center;
+                background-color: rgba(255, 255, 255, 0.95);
+                padding: 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                backdrop-filter: blur(5px);
+                transition: all 0.3s ease;
             }
 
             .nav-links.active {
                 display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+                transition: background-color 0.3s ease;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                background-color: rgba(127, 167, 195, 0.1);
+                color: #7fa7c3;
             }
 
             .auth-buttons {
@@ -191,8 +204,37 @@
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                padding: 10px 20px 20px 20px;
-                background-color: white;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(5px);
+            }
+
+            .auth-buttons .btn {
+                width: 100%;
+                text-align: center;
+                margin: 5px 0;
+                transition: transform 0.2s ease;
+            }
+
+            .auth-buttons .btn:hover {
+                transform: translateY(-2px);
+            }
+
+            /* Enhanced hamburger animation */
+            .hamburger span {
+                transition: all 0.3s ease-in-out;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
             }
 
             .hero h1 {
@@ -258,8 +300,11 @@
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             const authButtons = document.querySelector('.auth-buttons');
+            const hamburger = document.querySelector('.hamburger');
+            
             navLinks.classList.toggle('active');
             authButtons.classList.toggle('active');
+            hamburger.classList.toggle('active');
         }
     </script>
 </body>
